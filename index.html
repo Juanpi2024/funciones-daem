@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Manual de Funciones DAEM Parral</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+    /* Styles for Organizational Chart */
+    .org-chart {
+      text-align: center;
+      padding: 20px;
+    }
+    .org-chart ul {
+      padding-top: 20px;
+      position: relative;
+      transition: all 0.5s;
+    }
+    .org-chart li {
+      float: left;
+      text-align: center;
+      list-style-type: none;
+      position: relative;
+      padding: 20px 5px 0 5px;
+      transition: all 0.5s;
+    }
+    .org-chart li::before, .org-chart li::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 50%;
+      border-top: 2px solid #a7a7a7;
+      width: 50%;
+      height: 20px;
+    }
+    .org-chart li::after {
+      right: auto;
+      left: 50%;
+      border-left: 2px solid #a7a7a7;
+    }
+    .org-chart li:only-child::after, .org-chart li:only-child::before {
+      display: none;
+    }
+    .org-chart li:only-child {
+      padding-top: 0;
+    }
+    .org-chart li:first-child::before, .org-chart li:last-child::after {
+      border: 0 none;
+    }
+    .org-chart li:last-child::before {
+      border-right: 2px solid #a7a7a7;
+      border-radius: 0 5px 0 0;
+    }
+    .org-chart li:first-child::after {
+      border-radius: 5px 0 0 0;
+    }
+    .org-chart ul ul::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      border-left: 2px solid #a7a7a7;
+      width: 0;
+      height: 20px;
+    }
+    .org-chart li .node {
+      border: 2px solid #a7a7a7;
+      padding: 10px 15px;
+      text-decoration: none;
+      color: #333;
+      background-color: #f8f9fa;
+      font-family: 'Inter', sans-serif;
+      display: inline-block;
+      border-radius: 8px;
+      transition: all 0.5s;
+      cursor: pointer;
+    }
+    .org-chart li .node:hover, .org-chart li .node:hover+ul li .node {
+      background: #e9ecef;
+      color: #000;
+      border-color: #6c757d;
+    }
+    .org-chart li .node:hover+ul li::after,
+    .org-chart li .node:hover+ul li::before,
+    .org-chart li .node:hover+ul::before,
+    .org-chart li .node:hover+ul ul::before {
+      border-color: #6c757d;
+    }
+    .org-chart .node .title {
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: #0f172a;
+    }
+    .org-chart .node .role {
+      font-size: 0.75rem;
+      color: #475569;
+    }
+    .org-chart ul {
+      display: flex;
+      justify-content: center;
+    }
+  </style>
+<script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.1.1/",
+    "react": "https://aistudiocdn.com/react@^19.1.1",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.1.1/",
+    "recharts": "https://aistudiocdn.com/recharts@^2.13.0"
+  }
+}
+</script>
+</head>
+<body class="bg-slate-50">
+  <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
